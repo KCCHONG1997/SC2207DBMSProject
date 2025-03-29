@@ -7,6 +7,7 @@ USE labSCSXTeam2;
 DROP TABLE IF EXISTS answer;
 DROP TABLE IF EXISTS questionnaireSet;
 DROP TABLE IF EXISTS questionnaireText;
+DROP TABLE IF EXISTS questionnaire;
 
 DROP TABLE IF EXISTS fundTransaction;
 DROP TABLE IF EXISTS bondTransaction;
