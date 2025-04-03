@@ -49,7 +49,6 @@ CREATE TABLE IF NOT EXISTS portfolio (
     phoneNo VARCHAR(20) NOT NULL,  
     inceptionDate DATETIME,
     marketValue DECIMAL(10,2),
-    annualisedReturn DECIMAL(5,2),
     fee DECIMAL(5,2),
     PRIMARY KEY (portfolioId, phoneNo),
     FOREIGN KEY (phoneNo) REFERENCES investor(phoneNo) ON DELETE CASCADE
@@ -236,3 +235,13 @@ CREATE TABLE IF NOT EXISTS answer (
     FOREIGN KEY (phoneNo) REFERENCES investor(phoneNo) ON DELETE CASCADE,
     FOREIGN KEY (questionnaireId, questionNo) REFERENCES questionnaireSet(questionnaireId, questionNo) ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS portfolioReturn (
+    returnDate DATE NOT NULL,
+    portfolioId INT NOT NULL,
+    phoneNo VARCHAR(20) NOT NULL,
+    annualisedReturn DECIMAL(5,2) NOT NULL,
+    PRIMARY KEY (returnDate, portfolioId, phoneNo),
+    FOREIGN KEY (portfolioId, phoneNo) REFERENCES portfolio(portfolioId, phoneNo) ON DELETE CASCADE
+);
+
